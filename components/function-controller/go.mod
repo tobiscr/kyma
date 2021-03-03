@@ -17,8 +17,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.6.1
 	github.com/vrischmann/envconfig v1.3.0
-	golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
-	google.golang.org/protobuf v1.25.0
+	go.uber.org/zap v1.16.0
+	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
 	gopkg.in/yaml.v2 v2.3.0
 	k8s.io/api v0.18.12
 	k8s.io/apimachinery v0.18.12

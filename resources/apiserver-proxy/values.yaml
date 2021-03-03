@@ -5,14 +5,8 @@ port:
   insecure: 8444
   metrics: 2112
 
-podSecurityPolicy:
-  enabled: true
-
 securityContext:
   allowPrivilegeEscalation: false
-  capabilities:
-    drop:
-    - ALL
   privileged: false
   runAsGroup: 65534
   runAsNonRoot: true
@@ -52,10 +46,10 @@ tests:
 global:
   apiserver_proxy:
     dir:
-    version: 264d8882
+    version: "8505185c"
   apiserver_proxy_integration_tests:
     dir:
-    version: "277f4247"
+    version: "a066c1a5"
   istio:
     gateway:
       name: kyma-gateway
@@ -63,4 +57,4 @@ global:
     path: eu.gcr.io/kyma-project
   xip_patch:
     dir:
-    version: 4c2061be
+    version: a066c1a5
