@@ -1,9 +1,10 @@
 const fs = require("fs");
 const execa = require("execa");
+const { debug } = require("../utils");
 const { join } = require("path");
 
 function istioctlLocation(version) {
-  return join(__dirname, "..", `istio-${version}`, "bin", "istioctl");
+  return join(`istio-${version}`, "bin", "istioctl");
 }
 
 function isIstioctlDownloaded(version) {
@@ -26,11 +27,12 @@ async function upgradeIstio(version) {
     }
   );
 
-  console.log(stdout);
+  debug(stdout);
 }
 
 async function installIstio(version, istioProfile = "demo") {
   await ensureIstioctl(version);
+  debug("Installing istio", version);
   const istioctl = istioctlLocation(version);
   const { stdout } = await execa(
     istioctl,
@@ -47,7 +49,7 @@ async function installIstio(version, istioProfile = "demo") {
     }
   );
 
-  console.log(stdout);
+  debug(stdout);
 }
 
 async function ensureIstioctl(version) {
@@ -57,6 +59,7 @@ async function ensureIstioctl(version) {
 }
 
 async function downloadIstioctl(version) {
+  debug("Download istio version", version)
   const { stdout } = await execa.command(
     `curl -sL https://istio.io/downloadIstio | ISTIO_VERSION=${version} sh -`,
     {
@@ -64,7 +67,7 @@ async function downloadIstioctl(version) {
     }
   );
 
-  console.log(stdout);
+  debug(stdout);
 }
 
 module.exports = { installIstio, upgradeIstio };

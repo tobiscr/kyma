@@ -32,7 +32,7 @@ controller-manager:
 
   image:
     repository: eu.gcr.io/kyma-project/rafter-controller-manager
-    tag: d999a403
+    tag: 6d342230
     pullPolicy: IfNotPresent
 
   deployment:
@@ -205,8 +205,8 @@ controller-manager:
     ensureSecret:
       secretName: "rafter-minio-old-credentials"
       image:
-        repository: "eu.gcr.io/kyma-project/incubator/develop/k8s-tools"
-        tag: "20210113-12c4e3b5"
+        repository: "eu.gcr.io/kyma-project/incubator/k8s-tools"
+        tag: "20210208-080d17ad"
         pullPolicy: IfNotPresent
 
     image:
@@ -251,7 +251,7 @@ controller-manager:
         memory: 32Mi
         cpu: 10m
       limits:
-        memory: 256Mi
+        memory: 320Mi
         cpu: 250m
 
     gcsgateway:
@@ -363,8 +363,8 @@ upload-service:
   migrator:
     images:
       alpineKubectl:
-        repository: eu.gcr.io/kyma-project/incubator/develop/k8s-tools
-        tag: "20210113-12c4e3b5"
+        repository: eu.gcr.io/kyma-project/incubator/k8s-tools
+        tag: "20210208-080d17ad"
         pullPolicy: IfNotPresent
       minioClient:
         repository: eu.gcr.io/kyma-project/incubator/develop/minio/mc
@@ -419,7 +419,7 @@ asyncapi-service:
 
   image:
     repository: eu.gcr.io/kyma-project/rafter-asyncapi-service
-    tag: d999a403
+    tag: "49766840"
     pullPolicy: IfNotPresent
 
   deployment:
